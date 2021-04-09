@@ -65,3 +65,35 @@ body,
     }
   }
 }
+
+.dark-bg {
+  background-color: #001529;
+
+  color: white;
+}
+
+.ant-card,
+.ant-card-actions {
+  background: lighten($color: #001529, $amount: 6);
+}
+
+.home.dark-bg * {
+  color: white;
+}
+.ant-list * {
+  outline: none;
+}
+.ant-layout,
+.ant-layout * {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.ant-card-head {
+  border-bottom-color: #001529;
+}
+.ant-card-actions {
+  border-top-color: #001529;
+  & > li:not(:last-child) {
+    border-right-color: #001529;
+  }
+}

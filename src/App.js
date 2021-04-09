@@ -1,13 +1,43 @@
 import "./App.css";
 import logo from "./images/logo.png";
 import LogoRenderer from "./components/LogoRenderer";
-import { Layout, Menu, Col, Row } from "antd";
+import { Layout, Menu, Col, Row, Card, List } from "antd";
 import {
   GithubFilled,
   LinkedinFilled,
   TwitterSquareFilled,
   InstagramOutlined,
+  GithubOutlined,
+  DesktopOutlined,
 } from "@ant-design/icons";
+const data = [
+  {
+    title: "Conway's Game of Life",
+    description:
+      "Created a simulation of the popular algorithm. The graph allows you to change the state of a specific cell and run through the algorithm to determine whether or not it is alive or dead.",
+    repo: "https://github.com/baltabatuhan/game-of-life",
+    project: "https://gameol-batuhan.netlify.app/",
+  },
+  {
+    title: "Tidy Hive",
+    description:
+      "TidyHive simplifies home management with an easy-to-use interface and a robust feature set allowing you organize everything in your home from day-to-day tasks to larger projects.",
+    repo: "https://github.com/Lambda-School-Labs/homerun-fe",
+    project: "https://tidyhive-fe.herokuapp.com/",
+  },
+  {
+    title: "Kodritma",
+    description: "Free coding platform.",
+    repo: "https://github.com/Kodritma",
+    project: "https://kodritma.com/",
+  },
+  {
+    title: "Covid-19",
+    description: "Free covid-19 tracker.",
+    repo: "https://github.com/baltabatuhan/covid19",
+    project: "https://batuhanbalta.com/",
+  },
+];
 
 const { Header, Content, Footer } = Layout;
 const images = [
@@ -91,6 +121,44 @@ function App() {
               );
             })}
           </p>
+        </div>
+        <div id="portfolio" className="home dark-bg">
+          {" "}
+          <div className="block">
+            <h2>Portfolio</h2>
+            <p className="welcome-text">
+              Here are some applications I have built.
+            </p>
+            <List
+              grid={{
+                gutter: 16,
+                xs: 1,
+                sm: 2,
+                md: 2,
+                lg: 2,
+                xl: 2,
+                xxl: 2,
+              }}
+              dataSource={data}
+              renderItem={(item) => (
+                <List.Item>
+                  <Card
+                    title={item.title}
+                    actions={[
+                      <a href={item.repo} target="_blank" rel="noreferrer">
+                        <GithubOutlined style={{ fontSize: 18 }} />
+                      </a>,
+                      <a href={item.project} target="_blank" rel="noreferrer">
+                        <DesktopOutlined style={{ fontSize: 18 }} />
+                      </a>,
+                    ]}
+                  >
+                    {item.description}
+                  </Card>
+                </List.Item>
+              )}
+            />
+          </div>
         </div>
       </Content>
     </Layout>
